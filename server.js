@@ -46,6 +46,6 @@ app.post("/thanks", (req, res) => {
     
 });
 
-app.listen(8080, () => {
-  console.log("listening at http://localhost:8080");
+app.listen(process.env.PORT || 8080, () => {
+  console.log('listening at http://localhost:' + (process.env.PORT || 8000));
 });
