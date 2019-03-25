@@ -20,14 +20,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/contact", (req, res) => {
-  res.render("contact");
-});
-
-app.get("/test", (req, res) => {
-  res.render("test");
-});
-
 app.post("/thanks", (req, res) => {
   const sgMail = require("@sendgrid/mail");
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -36,8 +28,8 @@ app.post("/thanks", (req, res) => {
   const msg = {
     to: "noelmandal@gmail.com",
     subject: "Message from Portfolio!",
-    from: req.body.email,
-    text: req.body.fullName + ": " + req.body.message
+    from: "noelambatmandal@gmail.com",
+    text: "SenderEmail: " + req.body.email + " SenderName: " + req.body.fullName + " Message: " + req.body.message
   };
   sgMail
     .send(msg)
